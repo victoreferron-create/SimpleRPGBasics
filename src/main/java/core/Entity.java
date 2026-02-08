@@ -39,5 +39,5 @@ public abstract class Entity implements Damager, Damageable{
 
     }
 
-    
+
 }
