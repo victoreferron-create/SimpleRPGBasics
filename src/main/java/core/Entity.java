@@ -24,7 +24,6 @@ public abstract class Entity implements Damager, Damageable{
     @Override
     public int getBaseResistance() {
         return this.baseResistance;
-        // added comment
     }
 
     @Override
