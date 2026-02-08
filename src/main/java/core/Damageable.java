@@ -1,6 +1,6 @@
 package core;
 
 public interface Damageable {
-    int getResistance();
+    int getBaseResistance();
     int calculateFinalDamage(Damager damager, int attackerSideDamage);
 }
