@@ -1,9 +1,13 @@
 package core;
 
+import org.jetbrains.annotations.NotNull;
+
 public abstract class Entity implements Damager, Damageable{
 
     private final int baseDamage;
     private final int baseResistance;
+    private int hp;
+    private int maxHp;
 
     public Entity(int baseDamage, int baseResistance) {
         this.baseDamage = baseDamage;
@@ -38,6 +42,35 @@ public abstract class Entity implements Damager, Damageable{
         }
 
     }
+
+    @Override
+    public void hit(@NotNull Damager damager) {
+        int rawDamage = damager.calculateAttackerSideDamage();
+
+        int finalDamage = this.calculateFinalDamage(damager, rawDamage);
+
+        this.setHp(Math.max(0, this.getHp() - finalDamage));
+
+        if (this.getHp() == 0) {
+            this.onDeath();
+        }
+    }
+
+    public void setHp(int hp) {
+        this.hp = Math.max(0, Math.min(hp, this.getMaxHp()));
+    }
+    public int getHp() {
+        return this.hp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+    public int getMaxHp() {
+        return this.maxHp;
+    }
+
+    public abstract void onDeath();
 
 
 }
