@@ -6,9 +6,11 @@ public class Spiky extends Entity {
 
 
     public Spiky(int baseDamage, int baseResistance) {
-        super(baseDamage, baseResistance);
+        super();
         this.setMaxHp(5);
         this.setHp(5);
+        this.setBaseDamage(8);
+        this.setBaseResistance(0);
 
     }
 

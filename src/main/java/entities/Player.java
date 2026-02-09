@@ -5,9 +5,11 @@ import core.Entity;
 public class Player extends Entity {
 
     public Player(int baseDamage, int baseResistance) {
-        super(baseDamage, baseResistance);
+        super();
         this.setMaxHp(50);
         this.setHp(50);
+        this.setBaseDamage(6);
+        this.setBaseResistance(10);
     }
 
     @Override

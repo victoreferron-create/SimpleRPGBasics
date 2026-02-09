@@ -4,8 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class Entity implements Damager, Damageable{
 
-    private final int baseDamage;
-    private final int baseResistance;
+    private int baseDamage = 0;
+    private int baseResistance = 0;
     private int hp;
     private int maxHp;
 
@@ -21,9 +21,7 @@ public abstract class Entity implements Damager, Damageable{
      * }
      * </pre>
      */
-    public Entity(int baseDamage, int baseResistance) {
-        this.baseDamage = baseDamage;
-        this.baseResistance = baseResistance;
+    public Entity() {
     }
 
 
@@ -90,4 +88,11 @@ public abstract class Entity implements Damager, Damageable{
     }
 
 
+    public void setBaseResistance(int baseResistance) {
+        this.baseResistance = baseResistance;
+    }
+
+    public void setBaseDamage(int baseDamage) {
+        this.baseDamage = baseDamage;
+    }
 }
