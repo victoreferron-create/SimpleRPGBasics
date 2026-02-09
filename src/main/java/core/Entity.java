@@ -20,6 +20,9 @@ public abstract class Entity implements Damager, Damageable{
      * setHp(100);    // 2. Do this second
      * }
      * </pre>
+     *
+     * <br>
+     * the baseDamage and baseResistance fields must be set manually using setters inside the constructor
      */
     public Entity() {
     }
