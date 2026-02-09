@@ -9,6 +9,18 @@ public abstract class Entity implements Damager, Damageable{
     private int hp;
     private int maxHp;
 
+
+    /**
+     * <font color="red"><b>WARNING:</b></font>
+     * In your constructor, you must set Max HP before Current HP.
+     * <pre>
+     * public MyEntity() {
+     * super(10, 5);
+     * setMaxHp(100); // 1. Do this first
+     * setHp(100);    // 2. Do this second
+     * }
+     * </pre>
+     */
     public Entity(int baseDamage, int baseResistance) {
         this.baseDamage = baseDamage;
         this.baseResistance = baseResistance;
