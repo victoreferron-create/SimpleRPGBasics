@@ -84,5 +84,10 @@ public abstract class Entity implements Damager, Damageable{
 
     public abstract void onDeath();
 
+    @Override
+    public void attack(Damageable target) {
+        target.hit(this);
+    }
+
 
 }
