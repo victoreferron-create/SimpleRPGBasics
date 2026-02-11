@@ -15,6 +15,16 @@ public class Spiky extends Entity {
     }
 
     @Override
+    public int attackerSideModifiers() {
+        return 0;
+    }
+
+    @Override
+    public int finalDamageModifiers() {
+        return 0;
+    }
+
+    @Override
     public void onDeath() {
         System.out.println("Spike defeated!");
     }

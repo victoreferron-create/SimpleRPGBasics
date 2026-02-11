@@ -35,13 +35,17 @@ public abstract class Entity implements Damager, Damageable{
 
     @Override
     public int calculateAttackerSideDamage() {
-        return this.getBaseDamage();
+        return this.getBaseDamage() + this.attackerSideModifiers();
     }
+
+    public abstract int attackerSideModifiers();
 
     @Override
     public int calculateFinalDamage(Damager damager, int attackerSideDamage) {
 
         int netDamage = attackerSideDamage - this.getBaseResistance();
+
+        netDamage = netDamage + this.finalDamageModifiers();
 
         if (netDamage <= 0) {
             return 1;
@@ -50,24 +54,14 @@ public abstract class Entity implements Damager, Damageable{
         }
 
     }
+    public abstract int finalDamageModifiers();
 
     @Override
     public int getBaseResistance() {
         return this.baseResistance;
     }
 
-    @Override
-    public int calculateFinalDamage(Damager damager, int attackerSideDamage) {
 
-        int netDamage = attackerSideDamage - this.getBaseResistance();
-
-        if (netDamage <= 0) {
-          return 1;
-        } else {
-            return netDamage;
-        }
-
-    }
 
     @Override
     public void hit(@NotNull Damager damager) {
