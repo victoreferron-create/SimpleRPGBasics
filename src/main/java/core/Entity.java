@@ -39,6 +39,19 @@ public abstract class Entity implements Damager, Damageable{
     }
 
     @Override
+    public int calculateFinalDamage(Damager damager, int attackerSideDamage) {
+
+        int netDamage = attackerSideDamage - this.getBaseResistance();
+
+        if (netDamage <= 0) {
+            return 1;
+        } else {
+            return netDamage;
+        }
+
+    }
+
+    @Override
     public int getBaseResistance() {
         return this.baseResistance;
     }
